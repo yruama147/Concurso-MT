@@ -1,0 +1,155 @@
+--------criando registros [executar os blocos entre ------ sequenciamente]
+INSERT INTO public.estilo(
+	nome)
+	VALUES ('livre');
+	
+	INSERT INTO public.estilo(
+	nome)
+	VALUES ('atoa');
+	
+	INSERT INTO public.estilo(
+	nome)
+	VALUES ('morgando');
+	
+----------------------------
+
+INSERT INTO public.cerveja(
+	sku, nome, descricao, valor, teor_alcoolico, comissao, sabor, origem, codigo_estilo, quantidade_estoque, foto, content_type)
+	VALUES ('nao sei', 'cerveja1', 'nenhuma de legal', 10 ,90.1, 10.1, 'bacon', 'BR', 1, 100, '', '');
+
+INSERT INTO public.cerveja(
+	sku, nome, descricao, valor, teor_alcoolico, comissao, sabor, origem, codigo_estilo, quantidade_estoque, foto, content_type)
+	VALUES ('ainda nao sei', 'cerveja2', 'nenhuma de legal', 10 ,90.1, 10.1, 'morango', 'BR', 2, 100, '', '');
+
+INSERT INTO public.cerveja(
+	sku, nome, descricao, valor, teor_alcoolico, comissao, sabor, origem, codigo_estilo, quantidade_estoque, foto, content_type)
+	VALUES ('nao sei o que é', 'cerveja3', 'nenhuma de legal', 10 ,90.1, 10.1, 'abacaxi', 'BR', 3, 100, '', '');	
+
+---------------------------------
+INSERT INTO public.usuario(
+	nome, email, senha, ativo, data_nascimento)
+	VALUES ('amaury', '@gmail', '147', '1', '09.09.1996');
+	
+	INSERT INTO public.usuario(
+	nome, email, senha, ativo, data_nascimento)
+	VALUES ('sousa', '@hotgmail', '147', '0', '09.09.1995');
+	
+	INSERT INTO public.usuario(
+	nome, email, senha, ativo, data_nascimento)
+	VALUES ('franco', '@uolgmail', '147', '1', '09.09.1994');
+-----------------------------------
+
+INSERT INTO public.grupo(
+	nome)
+	VALUES ('ADM');
+INSERT INTO public.grupo(
+	nome)
+	VALUES ('caixa');
+			
+INSERT INTO public.grupo(
+	nome)
+	VALUES ('vendedor');
+	
+----------------------------------------
+
+INSERT INTO public.permissao(
+	nome)
+	VALUES ('caixa');
+	
+INSERT INTO public.permissao(
+	nome)
+	VALUES ('fazer venda');
+
+INSERT INTO public.permissao(
+	nome)
+	VALUES ('recebimento');
+
+-------------------------------------
+INSERT INTO public.grupo_permissao(
+	codigo_permissao, codigo_grupo)
+	VALUES (1, 1);
+
+INSERT INTO public.grupo_permissao(
+	codigo_permissao, codigo_grupo)
+	VALUES (2, 2);
+	
+	INSERT INTO public.grupo_permissao(
+	codigo_permissao, codigo_grupo)
+	VALUES (3, 3);
+---------------------------------
+INSERT INTO public.usuario_grupo(
+	codigo_usuario, codigo_grupo)
+	VALUES ( 1, 1);
+	INSERT INTO public.usuario_grupo(
+	codigo_usuario, codigo_grupo)
+	VALUES ( 3, 3);
+	INSERT INTO public.usuario_grupo(
+	codigo_usuario, codigo_grupo)
+	VALUES ( 2, 2);
+----------------------------------
+INSERT INTO public.estado(
+	nome, sigla)
+	VALUES ( 'rondonia', 'RO');
+INSERT INTO public.estado(
+	nome, sigla)
+	VALUES ( 'mato grosso', 'MT');
+INSERT INTO public.estado(
+	nome, sigla)
+	VALUES ( 'RIO', 'RJ');
+--------------------------
+INSERT INTO public.cidade(
+	nome, codigo_estado)
+	VALUES ('O.P.O',1 );
+INSERT INTO public.cidade(
+	nome, codigo_estado)
+	VALUES ('JIPA',2 );
+INSERT INTO public.cidade(
+	nome, codigo_estado)
+	VALUES ('RIO',3 );
+--------------------------
+INSERT INTO public.cliente(
+	nome, tipo_pessoa, cpf_cnpj, telefone, email, logradouro, numero, complemento, cep, codigo_cidade)
+	VALUES ('amaury', 'Fisica', '11122233344','' ,'', '@gmail.com', 'rua do sapo', 'S/N', '76920000', 1);
+			
+INSERT INTO public.cliente(
+	nome, tipo_pessoa, cpf_cnpj, telefone, email, logradouro, numero, complemento, cep, codigo_cidade)
+	VALUES ('amaury', 'Fisica', '11122244455','' , '', '@gmail.com', 'rua do sapo', 'S/N', '76920000', 1);
+INSERT INTO public.cliente(
+	nome, tipo_pessoa, cpf_cnpj, telefone, email, logradouro, numero, complemento, cep, codigo_cidade)
+	VALUES ('amaury', 'Fisica', '11122255566','' , '', '@gmail.com', 'rua do sapo', 'S/N', '76920000', 1);
+---------------------------
+INSERT INTO public.venda(
+	data_criacao, valor_frete, valor_desconto, valor_total, status, observacao, data_hora_entrega, codigo_cliente, codigo_usuario)
+	VALUES ('05.02.2021', 0.00, 0.00, 10.0, 'Fechado' , '', '05.02.2021 14:00:00', 1, 1);
+INSERT INTO public.venda(
+	data_criacao, valor_frete, valor_desconto, valor_total, status, observacao, data_hora_entrega, codigo_cliente, codigo_usuario)
+	VALUES ('05.02.2021', 0.00, 0.00, 20.0, 'Fechado' , '', '05.02.2021 14:00:00', 2, 2);
+INSERT INTO public.venda(
+	data_criacao, valor_frete, valor_desconto, valor_total, status, observacao, data_hora_entrega, codigo_cliente, codigo_usuario)
+	VALUES ('05.02.2021', 0.00, 0.00, 30.0, 'Aberto' , '', '05.02.2021 14:00:00', 3, 3);
+---------------------------
+INSERT INTO public.item_venda(
+	quantidade, valor_unitario, codigo_cerveja, codigo_venda)
+	VALUES ( 1, 10, 1, 1);
+INSERT INTO public.item_venda(
+	quantidade, valor_unitario, codigo_cerveja, codigo_venda)
+	VALUES ( 2, 20, 2, 2);
+INSERT INTO public.item_venda(
+	quantidade, valor_unitario, codigo_cerveja, codigo_venda)
+	VALUES ( 3, 10, 3, 3);
+----------------------------
+INSERT INTO public.schema_version(
+	version, description, type, script, checksum, installed_by, installed_on, execution_time, success)
+	VALUES ('1', 'update 2', 'PHP', '<<base script>>', null, 'postgres 12', '05.02.2020 12:20:20', 200, 0);
+
+INSERT INTO public.schema_version(
+	version, description, type, script, checksum, installed_by, installed_on, execution_time, success)
+	VALUES ('2', 'update 3', 'PHP', '<<base script>>', null, 'postgres 12', '05.02.2020 12:20:20', 200, 0);
+	
+INSERT INTO public.schema_version(
+	version, description, type, script, checksum, installed_by, installed_on, execution_time, success)
+	VALUES ('3', 'update 4', 'PHP', '<<base script>>', null, 'postgres 12', '05.02.2020 12:20:20', 200, 0);
+--------------------------
+	
+		
+	
